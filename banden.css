@@ -1,0 +1,382 @@
+main {
+    display: flex;
+}
+
+main section:nth-of-type(1) {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*
+.button1, .button2 {
+    animation: fadeIn 1s ease-in;
+    animation-delay: 1s;
+}
+*/
+
+.button1, .button2 {
+    animation-name: buttonlinks;
+    animation-duration: 1.45s;
+    animation-timing-function: cubic-bezier(.56,-0.11,.87,-0.15);
+}
+
+h1 {
+    animation: scaleDing 0.75s ease-in;
+}
+
+h1:hover {
+    font-style: italic;
+    transform: rotate(-5deg);
+    font-weight: 1000;
+}
+
+@keyframes buttonlinks {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 30%;
+    }
+}
+
+@keyframes buttonmove {
+    0% {
+        top: 200%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+
+.linkerbanden, .rechterbanden {
+    animation-name: wielenmove;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(.65,-0.07,.57,1.49);
+}
+
+@keyframes wielenmove {
+    0% {
+        top: 120%;
+    }
+    100% {
+        top: 12.5%;
+    }
+}
+
+@keyframes wegrijden {
+    0% {
+        top: 12.5%;
+    }
+    5% {
+        top: 15%;
+    }
+    10% {
+        top: 12.5%;
+    }
+    15% {
+        top: 15%;
+    }
+    20% {
+        top: 12.5%;
+    }
+    100% {
+        top: -120%;
+    }
+}
+
+@keyframes naarrechts {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes naarlinks {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+#Laag_1.wegrijden {
+    animation: wegrijden ease-out;
+    animation-duration: 1s;
+    transform-origin: center;
+}
+
+#Laag_2.wegrijden {
+    animation: wegrijden ease-out;
+    animation-duration:  1s;
+    transform-origin: center;
+}
+
+#Laag_2.draaiLinks {
+    transform-origin: center;
+    animation: naarlinks ease-out;
+    animation-duration: 1s;
+}
+
+#Laag_1.draaiRechts {
+    transform-origin: center;
+    animation: naarrechts ease-out;
+    animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleDing {
+    0% {
+        transform: scale(5.0);
+        color: red;
+        font-weight: 100;
+    }
+    95% {
+        transform: rotate(-10deg);
+        color: ghostwhite;
+        font-weight: 100;
+    }
+    100% {
+        transform: scale(1.0);
+        color: white;
+        font-weight: 800;
+    }
+}
+
+@keyframes scalewielen {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1.0)
+    }
+}
+
+@keyframes kleinerewielen {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1.0)
+    }
+}
+
+.vlak1 #Laag_1.wielenschalen,
+.vlak2 #Laag_2.wielenschalen {
+    animation-name: scalewielen;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.vlak1 #Laag_1.kleinerewielen,
+.vlak2 #Laag_2.kleinerewielen {
+    animation-name: kleinerewielen;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+h1 {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.button1, .button2 {
+    color: white;
+    background-color: transparent;
+    border: 0.2rem solid #FFFFFF;
+    border-radius: 2rem;
+    padding: 1rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 1000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition-property: background;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    animation-name: buttonmove;
+}
+
+.button1:hover {
+    background: #FFFFFF;
+    color: black;
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+.button2:hover {
+    background: #FFFFFF;
+    color: black;
+    transform: translate(-50%, -50%) scale(0.75);
+}
+
+/* https://learn.shayhowe.com/advanced-html-css/transitions-animations/ */
+
+svg {
+    position: absolute;
+    width: 13em;
+    right: 10em;
+    top: 8vw;
+}
+
+.vlak1 {
+    background-color: red;
+    width: 50vw;
+    height: 100vh;
+    position: relative;
+}
+
+.vlak2 {
+    background-color: orangered;
+    width: 50vw;
+    height: 100vh;
+    position: relative;
+}
+
+.vlak2 > svg {
+    position: absolute;
+    left: 10em;
+    width: 13em;
+}
+
+.kleurveranderen {
+    background-color: orangered;
+}
+
+.kleurveranderen1 {
+    background-color: red;
+}
+
+.vroem {
+    opacity: 0;
+    color: yellow;
+    animation: heh;
+    animation-duration: 1.3s;
+    animation-delay: 0.25s;
+    position: absolute;
+    color: white;
+    font-size: 3em;
+    font-weight: 1000;
+    font-family: sans-serif;
+    font-style: italic;
+    text-align: center;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes heh {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.0) rotate(0deg);
+        bottom: -20%;
+        color: yellow;
+    }
+    40% {
+        color: yellow;
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.5) rotate(-10deg);
+        bottom: -5%;
+        color: white;
+    }
+    60% {
+        color: yellow;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.0) rotate(0deg);
+        bottom: -20%;
+        color: yellow;
+    }
+}
+
+@media (max-width: 1500px) {
+    h1 {
+        font-size: 1.85em;
+    }
+    #Laag_1, #Laag_2 {
+        transform: scale(0.85);
+        padding: 3rem;
+    }
+    .button1, .button2 {
+        color: white;
+        background-color: transparent;
+        border: 0.2rem solid #FFFFFF;
+        border-radius: 1.5rem;
+        padding: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 1rem;
+        font-style: italic;
+        font-weight: 1000;
+        position: absolute;
+        left: 50%;
+        top: 47.5%;
+        transform: translate(-50%, -50%);
+        transition-property: background;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+    }
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        font-size: 1.6em;
+    }
+    main section:nth-of-type(1) {
+        top: 12.5%;
+    }    
+    #Laag_1 {
+        transform: scale(0.6);
+        right: 0.7em;
+    }
+    #Laag_2 {
+        transform: scale(0.6);
+        left: 0.7em;
+    }
+    .button1, .button2 {
+        color: white;
+        background-color: transparent;
+        border: 0.2rem solid #FFFFFF;
+        border-radius: 1.5rem;
+        padding: 0.8rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 1rem;
+        font-style: italic;
+        font-weight: 1000;
+        position: absolute;
+        left: 50%;
+        top: 85%;
+        transform: translate(-50%, -50%);
+        transition-property: background;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+    }
+}
